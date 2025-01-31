@@ -8,3 +8,8 @@ This project highlights some of the worst passwords commonly used. Users can vie
 - User submissions for bad passwords
 - Random weak password generator
 - Simple, fun UI with JavaScript interactivity
+
+## Tech Stack
+- HTML
+- CSS
+- JAVASCRIPT
