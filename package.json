@@ -1,0 +1,21 @@
+{
+  "name": "s86_worst_passwords_everused",
+  "version": "1.0.0",
+  "description": "This project is a fun and interactive website that showcases the worst passwords people commonly use. Users can view a list of notoriously weak passwords, submit their own bad password ideas, and even generate a random weak password. The goal is to highlight bad password practices in an engaging way while also educating users about password security.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalviumcommunity/S86_worst_passwords_everused.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kalviumcommunity/S86_worst_passwords_everused/issues"
+  },
+  "homepage": "https://github.com/kalviumcommunity/S86_worst_passwords_everused#readme"
+}
