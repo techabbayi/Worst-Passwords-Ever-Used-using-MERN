@@ -13,3 +13,11 @@ This project highlights some of the worst passwords commonly used. Users can vie
 - HTML
 - CSS
 - JAVASCRIPT
+
+## Setting Development Environment
+- Intialized the Project by creating a package.json file using below command in terminal
+''''
+npm init -y
+'''''
+- Added .gitignore File To avoid tracking unnecessary files in the Git repository, a .gitignore file has been added to the project. 
+This Ignored Node Modules and Package-lock.json files.
