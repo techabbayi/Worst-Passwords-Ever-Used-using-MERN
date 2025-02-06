@@ -13,3 +13,7 @@ This project highlights some of the worst passwords commonly used. Users can vie
 - HTML
 - CSS
 - JAVASCRIPT
+
+## Setting Development Environment
+- Created package.json File Using npm init -y command in terminal
+- added .gitginore file to ignore node modules and package-lock.json
