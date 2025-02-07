@@ -12,12 +12,12 @@ This project highlights some of the worst passwords commonly used. Users can vie
 ## Tech Stack
 - HTML
 - CSS
-- JAVASCRIPT
+- JavaScript
 
 ## Setting Development Environment
-- Intialized the Project by creating a package.json file using below command in terminal
+- Initialized the Project by creating a `package.json` file using the below command in the terminal:
 ''''
 npm init -y
 '''''
-- Added .gitignore File To avoid tracking unnecessary files in the Git repository, a .gitignore file has been added to the project. 
-This Ignored Node Modules and Package-lock.json files.
+
+- Added `.gitignore` File: To avoid tracking unnecessary files in the Git repository, a `.gitignore` file has been added to the project. This ignores the `node_modules` and `package-lock.json` files.
