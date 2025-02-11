@@ -26,3 +26,10 @@ This Ignored Node Modules and Package-lock.json files.
 - The server is created using the express package.
 - A basic route /ping is defined which sends back a response: 'Hey, This is Lokeswara Reddy' when visited.
 - The server listens on port 3000, and when you visit http://localhost:3000/ping, you'll receive the response message.
+
+
+## Bruno API Testing Requests:
+
+This Assignment includes API requests generated and exported from Bruno, organized in a folder called docs.bruno. The requests can be used for testing APIs or further integration in the project.
+
+- Bruno: Used to generate and export API requests.
