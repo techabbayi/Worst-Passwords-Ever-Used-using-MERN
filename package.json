@@ -4,14 +4,15 @@
   "description": "This project is a fun and interactive website that showcases the worst passwords people commonly use. Users can view a list of notoriously weak passwords, submit their own bad password ideas, and even generate a random weak password. The goal is to highlight bad password practices in an engaging way while also educating users about password security.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node index.js",
+  "test": "jest"
+}
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kalviumcommunity/S86_worst_passwords_everused.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lokeswara Reddy",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
