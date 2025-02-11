@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/kalviumcommunity/S86_worst_passwords_everused/issues"
   },
-  "homepage": "https://github.com/kalviumcommunity/S86_worst_passwords_everused#readme"
+  "homepage": "https://github.com/kalviumcommunity/S86_worst_passwords_everused#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }

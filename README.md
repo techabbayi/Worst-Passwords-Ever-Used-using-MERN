@@ -15,5 +15,14 @@ This project highlights some of the worst passwords commonly used. Users can vie
 - JAVASCRIPT
 
 ## Setting Development Environment
-- Created package.json File Using npm init -y command in terminal
-- added .gitginore file to ignore node modules and package-lock.json
+- Intialized the Project by creating a package.json file using below command in terminal
+''''
+npm init -y
+'''''
+- Added .gitignore File To avoid tracking unnecessary files in the Git repository, a .gitignore file has been added to the project. 
+This Ignored Node Modules and Package-lock.json files.
+
+## Setting up Endpoint using express application
+- The server is created using the express package.
+- A basic route /ping is defined which sends back a response: 'Hey, This is Lokeswara Reddy' when visited.
+- The server listens on port 3000, and when you visit http://localhost:3000/ping, you'll receive the response message.
