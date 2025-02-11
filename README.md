@@ -28,8 +28,14 @@ This Ignored Node Modules and Package-lock.json files.
 - The server listens on port 3000, and when you visit http://localhost:3000/ping, you'll receive the response message.
 
 
-## Bruno API Testing Requests:
 
-This Assignment includes API requests generated and exported from Bruno, organized in a folder called docs.bruno. The requests can be used for testing APIs or further integration in the project.
 
-- Bruno: Used to generate and export API requests.
+## ASAP Project Deployment on Render
+
+- Logged into Render.com and log in using your kalvium.community Google account
+- Created a Web Service via Public Repository to import files
+- Deployed ASAP App Project ( Worst Passwords Ever Used )
+
+
+# Deployed App:
+Check out the deployed ASAP app here: [Your Link](https://s86-worst-passwords-everused.onrender.com/ping)
