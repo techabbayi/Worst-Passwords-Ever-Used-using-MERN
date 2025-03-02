@@ -33,20 +33,19 @@ router.get('/passwords', async (req, res) => {
 // 3. READ a random weak password (GET)
 router.get('/passwords/random', async (req, res) => {
     try {
-      const count = await Password.countDocuments();  // Get the count of all passwords in the DB
+      const count = await Password.countDocuments();  
   
       if (count === 0) {
         return res.status(404).json({ message: 'No passwords found in the database' });
       }
   
-      const randomIndex = Math.floor(Math.random() * count);  // Generate a random index
-      const randomPassword = await Password.findOne().skip(randomIndex);  // Get a random password
+      const randomIndex = Math.floor(Math.random() * count);  
+      const randomPassword = await Password.findOne().skip(randomIndex);  
   
       if (!randomPassword) {
         return res.status(404).json({ message: 'No random password found' });
       }
   
-      // Respond with the random password as a JSON object
       res.status(200).json({ randomPassword: randomPassword.password });
     } catch (error) {
       res.status(500).json({ message: 'Error fetching random password', error });
