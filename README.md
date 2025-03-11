@@ -10,9 +10,9 @@ This project highlights some of the worst passwords commonly used. Users can vie
 - Simple, fun UI with JavaScript interactivity
 
 ## Tech Stack
-- HTML
-- CSS
-- JAVASCRIPT
+- React (Vite Framework)
+- Node Js (Backend Server)
+- MongoDB (Database)
 
 ## Setting Development Environment
 - Intialized the Project by creating a package.json file using below command in terminal
@@ -49,3 +49,15 @@ Check out the deployed ASAP app here: [Your Link](https://s86-worst-passwords-ev
 - Added MongoDB Connection via .env file to store securely
 - Intialized My ASAP Project to MongoDB Database with express
 - To Maintain Upcoming Tasks like authentication, Data Storing, etc.,
+
+## Defined Routes and Error Handling
+
+- Added Password Schema Model to my Project
+- Intialized CRUD Operations Usefull for my Project like passwords Collection
+- Added Routes to Handle CRUD Operations
+
+## Setting up Frontend Folder and Added Project info
+
+- Create React via vite Framework
+- Added Project Title, About and Project feautures in App.jsx
+- Added Dark theme Styling and Footer Display Also
