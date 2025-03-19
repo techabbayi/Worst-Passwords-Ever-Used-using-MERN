@@ -65,3 +65,9 @@ Check out the deployed ASAP app here: [Your Link](https://s86-worst-passwords-ev
 ## Deployment Link:
 
 https://worstpasswordseverused.netlify.app/
+
+## Setting up Passwordcard Component and Dashboard Implementaion
+
+- Created an PasswordCard Component and Dashboard Page
+- Taken Password Card into Dashboard and added dashboard path In Landing Page for Navigation
+- Better Styling and Professional Styling CSS
