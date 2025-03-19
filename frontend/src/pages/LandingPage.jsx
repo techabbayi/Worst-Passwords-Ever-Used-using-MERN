@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../App.css";  
 
-function App() {
+function LandingPage() {
   return (
     <div className="container">
       <header className="header">
@@ -19,7 +20,6 @@ function App() {
         </p>
       </section>
 
-
       <section className="project-info">
         <h3>Project Features:</h3>
         <ul>
@@ -30,6 +30,13 @@ function App() {
         </ul>
       </section>
 
+      {/* Dashboard Button */}
+      <section className="dashboard-btn-section">
+        <Link to="/dashboard">
+          <button className="dashboard-btn">Go to Dashboard</button>
+        </Link>
+      </section>
+
       <footer className="footer">
         <p>Remember: Strong passwords protect you from cyber threats.</p>
       </footer>
@@ -37,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;
