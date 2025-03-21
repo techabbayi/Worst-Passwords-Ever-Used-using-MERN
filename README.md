@@ -71,3 +71,8 @@ https://worstpasswordseverused.netlify.app/
 - Created an PasswordCard Component and Dashboard Page
 - Taken Password Card into Dashboard and added dashboard path In Landing Page for Navigation
 - Better Styling and Professional Styling CSS
+
+## COnnected Server with frontend and Rendered entities from Database
+
+- Created Cors for handling both frontend and backend rendering.
+- Updated Components to display entities and data from MongoDB.

@@ -30,7 +30,6 @@ function LandingPage() {
         </ul>
       </section>
 
-      {/* Dashboard Button */}
       <section className="dashboard-btn-section">
         <Link to="/dashboard">
           <button className="dashboard-btn">Go to Dashboard</button>
