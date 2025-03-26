@@ -1,5 +1,5 @@
 const express = require('express');
-const Password = require('./models/passwordSchema');
+const Password = require('../models/passwordSchema');
 const { body, validationResult } = require('express-validator');
 const cors = require('cors');  // CORS middleware
 const router = express.Router();

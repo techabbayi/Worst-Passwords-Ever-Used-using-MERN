@@ -31,8 +31,11 @@ function LandingPage() {
       </section>
 
       <section className="dashboard-btn-section">
-        <Link to="/dashboard">
-          <button className="dashboard-btn">Go to Dashboard</button>
+        <Link to="/weakPasswordSubmission">
+          <button className="dashboard-btn">Weak Password Submission</button>
+        </Link><br></br>
+        <Link to="/PasswordOfTheDay">
+          <button className="dashboard-btn">Password of the day</button>
         </Link>
       </section>
 

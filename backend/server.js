@@ -3,7 +3,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const passwordRoutes = require('./passwordRoutes');
+const passwordRoutes = require('./routes/passwordRoutes');
+const passwordOfTheDayRoutes = require('./routes/passwordofThedayRoutes');
 
 const app = express();
 const PORT = 8000;
@@ -37,6 +38,7 @@ app.get('/ping', (req, res) => {
 
 // Routes
 app.use('/passwords', passwordRoutes);
+app.use('/ofTheDay', passwordOfTheDayRoutes);
 
 // Start the server
 app.listen(PORT, () => {

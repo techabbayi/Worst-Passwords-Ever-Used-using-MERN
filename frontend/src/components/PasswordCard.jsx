@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 
 const PasswordCard = ({ password, strength, username, submissionDate, votes, comments, onDelete, onUpdate }) => {
   const user = username || 'Anonymous';
