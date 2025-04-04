@@ -39,7 +39,6 @@ const PasswordList = () => {
         throw new Error('Failed to delete password');
       }
 
-      // Remove the deleted password from the state
       setPasswords(passwords.filter((password) => password._id !== id));
       alert('Password deleted successfully!');
     } catch (err) {
