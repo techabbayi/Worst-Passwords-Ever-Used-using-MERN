@@ -1,11 +1,10 @@
 const express = require('express');
 const Password = require('../models/passwordSchema');
 const { body, validationResult } = require('express-validator');
-const cors = require('cors');  // CORS middleware
+const cors = require('cors');
 const router = express.Router();
 
 
-// Middleware to handle validation errors
 const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -14,7 +13,6 @@ const handleValidationErrors = (req, res, next) => {
   next();
 };
 
-// 1. CREATE a weak password (POST)
 router.post(
   '/',
   [
@@ -40,7 +38,6 @@ router.post(
   }
 );
 
-// 2. GET all passwords (GET)
 router.get('/', async (req, res) => {
   try {
     const passwords = await Password.find();
@@ -51,7 +48,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 3. GET a password by ID (GET)
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -67,7 +63,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// 4. UPDATE a weak password by ID (PUT)
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { password, username } = req.body;
@@ -88,7 +83,6 @@ router.put('/:id', async (req, res) => {
 
 
 
-// 5. DELETE a weak password by ID (DELETE)
 router.delete('/:id', async (req, res) => { 
   const { id } = req.params;
 
@@ -106,7 +100,6 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// 6. GET a random password (GET)
 router.get('/random', async (req, res) => {
   try {
     const count = await Password.countDocuments();

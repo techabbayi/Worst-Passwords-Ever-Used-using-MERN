@@ -76,3 +76,6 @@ https://worstpasswordseverused.netlify.app/
 
 - Created Cors for handling both frontend and backend rendering.
 - Updated Components to display entities and data from MongoDB.
+
+## Added Frontend Required Page For Weak Password Submission 
+- Created POST, GET, UPDATE and DELETE Operations in Frontend and Backend.

@@ -9,7 +9,6 @@ const PasswordOfTheDay = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  // Fetch the current "Password of the Day" from the backend when the component mounts
   useEffect(() => {
     axios.get('http://localhost:8000/ofTheDay/password-of-the-day')
       .then((response) => {
@@ -23,7 +22,6 @@ const PasswordOfTheDay = () => {
       });
   }, []);
 
-  // Handle form submission to set the Password of the Day
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -33,19 +31,16 @@ const PasswordOfTheDay = () => {
     }
 
     try {
-      // Post the password to the backend
       await axios.post('http://localhost:8000/ofTheDay/password-of-the-day', {
         password,
         username,
       });
 
-      // Clear form and reset states after successful submission
       setPassword('');
       setUsername('');
       setError('');
       setSuccess('Password of the Day set successfully!');
 
-      // Fetch the updated Password of the Day after submission
       const response = await axios.get('http://localhost:8000/ofTheDay/password-of-the-day');
       setPasswordOfTheDay(response.data.passwordOfTheDay);
     } catch (err) {
@@ -59,7 +54,6 @@ const PasswordOfTheDay = () => {
     <div className="password-of-the-day">
       <h2>Set Password of the Day</h2>
       
-      {/* Form for setting the Password of the Day */}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="password">Password:</label>

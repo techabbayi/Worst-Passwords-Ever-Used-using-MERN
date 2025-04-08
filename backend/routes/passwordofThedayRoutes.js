@@ -3,7 +3,6 @@ const PasswordOfTheDay = require('../models/passwordOfDaySchema');
 const { body, validationResult } = require('express-validator');
 const router = express.Router();
 
-// Middleware to handle validation errors
 const handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -12,7 +11,6 @@ const handleValidationErrors = (req, res, next) => {
   next();
 };
 
-// 1. CREATE a password of the day (POST)
 router.post(
   '/password-of-the-day',
   [
@@ -31,10 +29,8 @@ router.post(
     const { password, username = 'Anonymous' } = req.body;
 
     try {
-      // Before creating a new password of the day, clear the existing one (if any)
       await PasswordOfTheDay.updateMany({ passwordOfTheDay: true }, { $set: { passwordOfTheDay: false } });
 
-      // Create and save the new password of the day
       const newPasswordOfTheDay = new PasswordOfTheDay({ password, username, passwordOfTheDay: true });
       await newPasswordOfTheDay.save();
 
@@ -49,12 +45,10 @@ router.post(
   }
 );
 
-// 2. GET the current password of the day (GET)
 router.get('/password-of-the-day', async (req, res) => {
   try {
-    // Find the most recent password of the day
     const passwordOfTheDay = await PasswordOfTheDay.findOne({ passwordOfTheDay: true })
-      .sort({ createdAt: -1 }) // Sort by createdAt to get the most recent one
+      .sort({ createdAt: -1 })
       .limit(1);
 
     if (!passwordOfTheDay) {
@@ -71,7 +65,6 @@ router.get('/password-of-the-day', async (req, res) => {
   }
 });
 
-// 3. UPDATE the password of the day (PUT)
 router.put(
   '/password-of-the-day',
   [
@@ -90,7 +83,6 @@ router.put(
     const { password, username = 'Anonymous' } = req.body;
 
     try {
-      // Update the existing password of the day to new one
       const updatedPasswordOfTheDay = await PasswordOfTheDay.findOneAndUpdate(
         { passwordOfTheDay: true },
         { password, username },
