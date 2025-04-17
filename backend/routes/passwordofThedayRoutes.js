@@ -1,6 +1,7 @@
 const express = require('express');
 const PasswordOfTheDay = require('../models/passwordOfDaySchema');
 const { body, validationResult } = require('express-validator');
+const authenticate = require('../middleware/authenticate');
 const router = express.Router();
 
 const handleValidationErrors = (req, res, next) => {
@@ -11,14 +12,13 @@ const handleValidationErrors = (req, res, next) => {
   next();
 };
 
+// Route should match what's used in frontend (PasswordOfTheDay.jsx)
 router.post(
   '/password-of-the-day',
   [
     body('password')
-      .isLength({ min: 6 })
-      .withMessage('Password must be at least 6 characters long.')
-      .matches(/\d/)
-      .withMessage('Password must contain at least one number.'),
+      .isLength({ min: 1 }) // Changed to allow any password for demonstration purposes
+      .withMessage('Password is required'),
     body('username')
       .optional()
       .isString()
@@ -45,6 +45,7 @@ router.post(
   }
 );
 
+// Route should match what's used in frontend (PasswordOfTheDay.jsx)
 router.get('/password-of-the-day', async (req, res) => {
   try {
     const passwordOfTheDay = await PasswordOfTheDay.findOne({ passwordOfTheDay: true })
@@ -67,6 +68,7 @@ router.get('/password-of-the-day', async (req, res) => {
 
 router.put(
   '/password-of-the-day',
+  authenticate,
   [
     body('password')
       .isLength({ min: 6 })
