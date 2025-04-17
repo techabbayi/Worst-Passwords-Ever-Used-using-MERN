@@ -1,22 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Signup from './pages/auth/Signup';
+import Login from './pages/auth/Login';
 import UserDashboard from './pages/WeakPasswordSubmission';
-import LandingPage from './pages/LandingPage';
-import PasswordOfTheDay from './components/PasswordOfTheday';
+import Leaderboard from './components/Leaderboard';
+import HomePage from './pages/LandingPage';
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/WeakPasswordSUbmission" element={<UserDashboard />} />
-          <Route path='/PasswordOfTheDay' element={<PasswordOfTheDay />} />
-
-        </Routes>
-      </div>
-    </Router>
-  );
+// Protected Route Component
+const PrivateRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" />;
 };
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route 
+            path="/dashboard" 
+            element={<UserDashboard />} 
+          />
+          <Route 
+            path="/leaderboard" 
+            element={
+              <PrivateRoute>
+                <Leaderboard />
+              </PrivateRoute>
+            } 
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
 
 export default App;
