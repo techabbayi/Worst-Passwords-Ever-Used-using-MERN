@@ -5,7 +5,7 @@ const User = require('../models/user');
 const { body, validationResult } = require('express-validator');
 const authenticate = require('../middleware/authenticate');
 
-// Cookie options
+// Cookie Setup
 const cookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === 'production',
@@ -79,7 +79,6 @@ router.post('/login', [
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' }, (err, token) => {
       if (err) throw err;
 
-      // ✅ Set username as cookie
       res
         .cookie('username', user.username, cookieOptions)
         .json({
@@ -93,7 +92,7 @@ router.post('/login', [
   }
 });
 
-// Logout: clears cookie
+// Logout: clears cookies
 router.post('/logout', (req, res) => {
   res.clearCookie('username', cookieOptions);
   res.json({ message: 'Logged out successfully' });

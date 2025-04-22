@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
-  // Logout user and clear localStorage
+  // Logout user and clear Cookies
   const logout = async () => {
     try {
       await API.post('/api/auth/logout');

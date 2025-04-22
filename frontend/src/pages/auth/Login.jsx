@@ -19,9 +19,9 @@ const Login = () => {
 
     try {
       const res = await API.post("/api/auth/login", form);
-      login(res.data);  // Save user session in context
+      login(res.data);
       setSuccess("Login successful! Redirecting...");
-      setTimeout(() => navigate("/dashboard"), 1500); // Wait for alert, then navigate
+      setTimeout(() => navigate("/dashboard"), 1500);
     } catch (error) {
       setError(
         error.response?.data?.error ||
