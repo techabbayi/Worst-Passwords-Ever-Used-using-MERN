@@ -6,6 +6,7 @@ import API from "../../api";
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -13,15 +14,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setLoading(true);
-    
+
     try {
       const res = await API.post("/api/auth/login", form);
-      login(res.data);
-      navigate("/dashboard");
+      login(res.data);  // Save user session in context
+      setSuccess("Login successful! Redirecting...");
+      setTimeout(() => navigate("/dashboard"), 1500); // Wait for alert, then navigate
     } catch (error) {
       setError(
-        error.response?.data?.error || 
+        error.response?.data?.error ||
         error.response?.data?.errors?.[0]?.msg ||
         "Invalid credentials. Please try again."
       );
@@ -36,11 +39,19 @@ const Login = () => {
         <div>
           <h2 className="text-center text-3xl font-bold text-gray-900">Log in</h2>
         </div>
+
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
             {error}
           </div>
         )}
+
+        {success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+            {success}
+          </div>
+        )}
+
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -82,7 +93,7 @@ const Login = () => {
               {loading ? "Logging in..." : "Log in"}
             </button>
           </div>
-          
+
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
