@@ -5,6 +5,12 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const passwordRoutes = require('./routes/passwordRoutes');
 const passwordOfTheDayRoutes = require('./routes/passwordOfTheDayRoutes');
+const entityRoutes = require('./routes/sqlEntities');
+const { authenticateDatabase } = require('./sqlConfig/mysql');
+
+require('./models/sqlAssociations');
+
+
 
 dotenv.config();
 const app = express();
@@ -16,6 +22,7 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 // MongoDB Connection
@@ -28,10 +35,18 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.error('Error connecting to MongoDB:', err);
 });
 
+// SQL Connection
+authenticateDatabase();
+
+
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/passwords', passwordRoutes);
-app.use('/ofTheDay', passwordOfTheDayRoutes); // Fixed route to match frontend
+app.use('/ofTheDay', passwordOfTheDayRoutes);
+app.use("/api", entityRoutes);
+
+
 
 // Health check routes
 app.get('/api', (req, res) => {

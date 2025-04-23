@@ -5,6 +5,8 @@ import Login from './pages/auth/Login';
 import UserDashboard from './pages/WeakPasswordSubmission';
 import Leaderboard from './components/Leaderboard';
 import HomePage from './pages/LandingPage';
+import UserEntityFilter from './components/UserEntityFilter.jsx';
+
 
 // Protected Route Component
 const PrivateRoute = ({ children }) => {
@@ -20,19 +22,20 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route 
-            path="/dashboard" 
-            element={<UserDashboard />} 
+          <Route
+            path="/dashboard"
+            element={<UserDashboard />}
           />
-          <Route 
-            path="/leaderboard" 
+          <Route
+            path="/leaderboard"
             element={
               <PrivateRoute>
                 <Leaderboard />
               </PrivateRoute>
-            } 
+            }
           />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/sqltest" element={<UserEntityFilter/>} />
         </Routes>
       </Router>
     </AuthProvider>

@@ -2,9 +2,9 @@
   "name": "s86_worst_passwords_everused",
   "version": "1.0.0",
   "description": "This project is a fun and interactive website that showcases the worst passwords people commonly use. Users can view a list of notoriously weak passwords, submit their own bad password ideas, and even generate a random weak password. The goal is to highlight bad password practices in an engaging way while also educating users about password security.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test": "jest"
   },
   "repository": {
@@ -29,6 +29,8 @@
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.13.1",
-    "mongoose": "^8.10.2"
+    "mongoose": "^8.10.2",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7"
   }
 }

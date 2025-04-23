@@ -27,11 +27,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Logout user and clear localStorage
-  const logout = () => {
-    localStorage.removeItem('user');
-    delete API.defaults.headers.common['Authorization'];
-    setUser(null);
+  const logout = async () => {
+    try {
+      await API.post('/api/auth/logout');
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      localStorage.removeItem('user');
+      delete API.defaults.headers.common['Authorization'];
+      setUser(null);
+    }
   };
+  
 
   const value = {
     user,
