@@ -80,6 +80,7 @@ router.post('/login', [
       if (err) throw err;
 
       res
+        .cookie('token', token, cookieOptions)
         .cookie('username', user.username, cookieOptions)
         .json({
           token,
@@ -94,6 +95,7 @@ router.post('/login', [
 
 // Logout: clears cookies
 router.post('/logout', (req, res) => {
+  res.clearCookie('token', cookieOptions);
   res.clearCookie('username', cookieOptions);
   res.json({ message: 'Logged out successfully' });
 });
