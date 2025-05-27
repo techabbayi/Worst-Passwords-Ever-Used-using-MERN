@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PasswordOfTheDay from "../components/PasswordOfTheDay";
+import PasswordOfTheDay from "../components/PasswordOfTheday";
 import lock from '../assets/lock.png';
 import Navbar from "../components/Navbar";
 
