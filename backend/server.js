@@ -4,7 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const passwordRoutes = require('./routes/passwordRoutes');
-const passwordOfTheDayRoutes = require('./routes/passwordOfTheDayRoutes');
+const passwordOfTheDayRoutes = require('./routes/passwordOfThedayRoutes');
 const entityRoutes = require('./routes/sqlEntities');
 const { authenticateDatabase } = require('./sqlConfig/mysql');
 
