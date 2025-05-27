@@ -3,6 +3,10 @@
 ## Project Overview
 This project highlights some of the worst passwords commonly used. Users can view a list of bad passwords, submit their own weak passwords, and generate a random weak password.
 
+## Deployment Link:
+
+https://worstpasswordseverused.netlify.app/
+
 ## Key Features
 - List of common weak passwords
 - User submissions for bad passwords
@@ -62,9 +66,6 @@ Check out the deployed ASAP app here: [Your Link](https://s86-worst-passwords-ev
 - Added Project Title, About and Project feautures in App.jsx
 - Added Dark theme Styling and Footer Display Also
 
-## Deployment Link:
-
-https://worstpasswordseverused.netlify.app/
 
 ## Setting up Passwordcard Component and Dashboard Implementaion
 
