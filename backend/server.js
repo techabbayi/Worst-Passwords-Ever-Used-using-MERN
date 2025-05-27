@@ -49,8 +49,8 @@ app.use("/api", entityRoutes);
 
 
 // Health check routes
-app.get('/api', (req, res) => {
-  res.status(200).json({ message: 'API is running' });
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Worst Passwords Ever Used, API is running' });
 });
 
 // Error handling middleware
