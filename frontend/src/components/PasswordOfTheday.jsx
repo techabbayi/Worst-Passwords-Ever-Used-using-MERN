@@ -14,7 +14,7 @@ const PasswordOfTheDay = ({ showForm = true, setShowModal }) => {
 
   const fetchPasswordOfTheDay = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/ofTheDay/password-of-the-day');
+      const response = await axios.get('https://s86-worst-passwords-everused.onrender.com/ofTheDay/password-of-the-day');
       if (response.data.passwordOfTheDay) {
         setPasswordOfTheDay(response.data.passwordOfTheDay);
       }
@@ -35,7 +35,7 @@ const PasswordOfTheDay = ({ showForm = true, setShowModal }) => {
     }
 
     try {
-      await axios.post('http://localhost:8000/ofTheDay/password-of-the-day', {
+      await axios.post('https://s86-worst-passwords-everused.onrender.com/ofTheDay/password-of-the-day', {
         password,
         username,
       });
