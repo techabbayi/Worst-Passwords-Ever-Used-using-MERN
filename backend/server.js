@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const authRoutes = require('./routes/authRoutes');
-const passwordRoutes = require('./routes/passwordRoutes');
-const passwordOfTheDayRoutes = require('./routes/passwordOfTheDayRoutes');
-const entityRoutes = require('./routes/sqlEntities');
-const { authenticateDatabase } = require('./sqlConfig/mysql');
+const authRoutes = require('../routes/authRoutes');
+const passwordRoutes = require('../routes/passwordRoutes');
+const passwordOfTheDayRoutes = require('../routes/passwordOfTheDayRoutes');
+const entityRoutes = require('../routes/sqlEntities');
+const { authenticateDatabase } = require('../sqlConfig/mysql');
 
 require('./models/sqlAssociations');
 
