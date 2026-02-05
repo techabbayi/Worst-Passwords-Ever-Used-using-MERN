@@ -10,8 +10,10 @@ const PasswordGenerator = () => {
   const [generatedPassword, setGeneratedPassword] = useState('');
   const [copied, setCopied] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [error, setError] = useState('');
 
   const generatePassword = () => {
+    setError('');
     let charset = '';
     if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
@@ -19,7 +21,7 @@ const PasswordGenerator = () => {
     if (includeSpecial) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
     if (charset === '') {
-      alert('Please select at least one character type!');
+      setError('Please select at least one character type!');
       return;
     }
 
@@ -88,6 +90,13 @@ const PasswordGenerator = () => {
               )}
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-400 dark:border-red-800 rounded-lg animate-fade-in">
+          <p className="text-red-700 dark:text-red-400">{error}</p>
         </div>
       )}
 
