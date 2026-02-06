@@ -71,11 +71,17 @@ function LandingPage() {
               <li>📱 Fully responsive mobile & desktop design</li>
               <li>🔐 Password strength analyzer</li>
               <li>🛠️ Professional security tools</li>
+              <li>🔒 All-in-One Cyber Security Utilities Hub</li>
             </ul>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col justify-center gap-4 sm:gap-6 w-full sm:w-auto">
+            <Link to="/security-tools-hub" className="w-full">
+              <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 dark:from-blue-600 dark:to-purple-700 dark:hover:from-blue-700 dark:hover:to-purple-800 text-white text-base sm:text-lg font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
+                🛡️ Security Hub
+              </button>
+            </Link>
             <Link to="/security-tools" className="w-full">
               <button className="w-full px-6 py-3 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white text-base sm:text-lg font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
                 🛠️ Security Tools
