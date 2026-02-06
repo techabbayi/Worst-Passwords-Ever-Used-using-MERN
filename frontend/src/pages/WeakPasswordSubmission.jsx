@@ -107,30 +107,30 @@ const UserDashboard = () => {
   };
 
   if (loading) {
-    return <p className="text-white text-center">Loading...</p>;
+    return <p className="text-gray-900 dark:text-white text-center">Loading...</p>;
   }
 
   return (
-    <div className="user-dashboard flex flex-col items-center bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 min-h-screen py-12 px-6">
-      <Link to="/" className="absolute top-6 left-6 text-white text-xl font-semibold hover:underline">
+    <div className="user-dashboard flex flex-col items-center bg-gray-100 dark:bg-gray-900 min-h-screen py-12 px-6 transition-colors duration-300">
+      <Link to="/" className="absolute top-6 left-6 text-gray-900 dark:text-white text-xl font-semibold hover:underline transition-colors duration-300">
         Back to Home
       </Link>
 
-      <h2 className="text-4xl font-extrabold text-white mb-8">Your Submitted Passwords</h2>
+      <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-8 transition-colors duration-300">Your Submitted Passwords</h2>
 
       {/* Show submission form only if user is logged in */}
       {user ? (
         <form
           onSubmit={handleSubmit}
-          className="bg-white/60 backdrop-blur-lg p-8 rounded-xl shadow-2xl w-full max-w-lg mb-8"
+          className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-lg mb-8 transition-colors duration-300"
         >
-          {error && <p className="text-red-500 mb-4">{error}</p>}
+          {error && <p className="text-red-500 dark:text-red-400 mb-4 transition-colors duration-300">{error}</p>}
 
           <div className="mb-4">
             <select
               value={selectedUser}
               onChange={handleUserChange}
-              className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
+              className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-300"
             >
               <option value="">All Users</option>
               {users.map((user) => (
@@ -147,15 +147,15 @@ const UserDashboard = () => {
             onChange={handlePasswordChange}
             placeholder="Enter password"
             ref={passwordInputRef}
-            className={`w-full p-4 mb-2 rounded-lg border ${passwordError ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full p-4 mb-2 rounded-lg border ${passwordError ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300`}
           />
           <div className="flex justify-between mb-4">
             {password && (
-              <span className="text-sm text-gray-700">
+              <span className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
                 Strength: <strong>{getPasswordStrength(password)}</strong>
               </span>
             )}
-            {passwordError && <span className="text-red-500 text-sm">{passwordError}</span>}
+            {passwordError && <span className="text-red-500 dark:text-red-400 text-sm transition-colors duration-300">{passwordError}</span>}
           </div>
 
           <input
@@ -163,7 +163,7 @@ const UserDashboard = () => {
             value={site}
             onChange={(e) => setSite(e.target.value)}
             placeholder="Website (optional)"
-            className="w-full p-4 mb-4 rounded-lg border border-gray-300"
+            className="w-full p-4 mb-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
           />
 
           <input
@@ -171,12 +171,12 @@ const UserDashboard = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username (optional)"
-            className="w-full p-4 mb-4 rounded-lg border border-gray-300"
+            className="w-full p-4 mb-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
           />
 
           <button
             type="submit"
-            className="w-full p-4 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700"
+            className="w-full p-4 rounded-lg bg-blue-600 dark:bg-blue-700 text-white font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!!passwordError}
           >
             Submit
@@ -184,14 +184,14 @@ const UserDashboard = () => {
         </form>
       ) : (
         <>
-          <div className="bg-white/30 p-6 mb-6 rounded-xl text-center text-white">
+          <div className="bg-white dark:bg-gray-800 p-6 mb-6 rounded-xl text-center text-gray-900 dark:text-white shadow-lg transition-colors duration-300">
             Please login to add a password. You can still view all submitted passwords below.
           </div>
           <div className="mb-6 w-full max-w-lg">
             <select
               value={selectedUser}
               onChange={handleUserChange}
-              className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800"
+              className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-300"
             >
               <option value="">All Users</option>
               {users.map((user) => (
@@ -205,12 +205,12 @@ const UserDashboard = () => {
       )}
 
       {passwords.length === 0 ? (
-        <p className="text-white text-center text-lg">No passwords submitted yet.</p>
+        <p className="text-gray-900 dark:text-white text-center text-lg transition-colors duration-300">No passwords submitted yet.</p>
       ) : (
         <PasswordList passwords={passwords} />
       )}
 
-      <Link to="/leaderboard" className="mt-8 text-white text-lg font-semibold hover:underline">
+      <Link to="/leaderboard" className="mt-8 text-gray-900 dark:text-white text-lg font-semibold hover:underline transition-colors duration-300">
         View Leaderboard
       </Link>
     </div>
