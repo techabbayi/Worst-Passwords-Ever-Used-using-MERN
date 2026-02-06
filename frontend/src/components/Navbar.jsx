@@ -34,6 +34,12 @@ const Navbar = () => {
           Learn
         </Link>
         <Link 
+          to="/security-tools-hub" 
+          className="text-gray-300 hover:text-blue-400 transition-colors"
+        >
+          Security Hub
+        </Link>
+        <Link 
           to="/security-tools" 
           className="text-gray-300 hover:text-blue-400 transition-colors"
         >
@@ -94,6 +100,13 @@ const Navbar = () => {
               className="text-gray-300 hover:text-blue-400 text-center py-2 transition-colors"
             >
               📚 Learn Security
+            </Link>
+            <Link 
+              to="/security-tools-hub" 
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-300 hover:text-blue-400 text-center py-2 transition-colors"
+            >
+              🛡️ Security Hub
             </Link>
             <Link 
               to="/security-tools" 
