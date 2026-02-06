@@ -80,11 +80,11 @@ const ChecksumValidator = () => {
           )
         });
       }
-    } catch {
+    } catch (error) {
       setResult({
         type: 'danger',
         title: 'Error',
-        message: 'Failed to calculate checksum. Please try again.'
+        message: `Failed to calculate checksum: ${error.message || 'Unknown error'}. Please try again.`
       });
     } finally {
       setCalculating(false);

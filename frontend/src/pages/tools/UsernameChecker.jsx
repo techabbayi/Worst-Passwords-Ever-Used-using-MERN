@@ -43,6 +43,11 @@ const UsernameChecker = () => {
       message: `Found ${availableCount} platforms where "${username}" is available.`,
       details: (
         <div className="space-y-2 mt-3">
+          <div className="p-2 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded mb-3">
+            <p className="text-xs text-yellow-800 dark:text-yellow-300">
+              <strong>⚠️ Demo Mode:</strong> Results are randomly generated for demonstration purposes. For accurate availability, visit each platform directly.
+            </p>
+          </div>
           {mockResults.map((result, idx) => (
             <div key={idx} className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg">
               <span className="font-medium">{result.platform}</span>

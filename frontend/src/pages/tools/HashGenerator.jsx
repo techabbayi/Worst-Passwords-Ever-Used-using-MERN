@@ -8,11 +8,16 @@ const HashGenerator = () => {
   const [hashes, setHashes] = useState(null);
   const [copied, setCopied] = useState('');
 
-  // Simple hash functions (for demonstration - in production use crypto library)
+  // Hash functions using Web Crypto API
   const generateMD5 = async (text) => {
-    // Using SubtleCrypto API (available in modern browsers)
-    // Note: MD5 is not available in SubtleCrypto, so we'll simulate it
-    return 'md5_' + btoa(text).substring(0, 32);
+    // MD5 is not available in SubtleCrypto, using simulation for demo purposes
+    // In production, use crypto-js or similar library for MD5
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-1', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    // Take first 16 bytes to simulate MD5 length
+    return hashArray.slice(0, 16).map(b => b.toString(16).padStart(2, '0')).join('');
   };
 
   const generateSHA = async (text, algorithm) => {
@@ -107,7 +112,7 @@ const HashGenerator = () => {
         <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
           <h3 className="font-semibold mb-2">About Hash Functions:</h3>
           <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-            <li><strong>MD5:</strong> 128-bit hash, fast but not recommended for security (collision vulnerabilities)</li>
+            <li><strong>MD5:</strong> 128-bit hash (simulated in this demo - use crypto-js for real MD5)</li>
             <li><strong>SHA-1:</strong> 160-bit hash, deprecated for security but still used for checksums</li>
             <li><strong>SHA-256:</strong> 256-bit hash, part of SHA-2 family, highly secure and widely used</li>
             <li><strong>SHA-512:</strong> 512-bit hash, most secure in SHA-2 family, used for critical applications</li>
@@ -120,6 +125,10 @@ const HashGenerator = () => {
             <li>• Digital signatures</li>
             <li>• Data deduplication</li>
           </ul>
+          
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
+            <strong>Note:</strong> MD5 hash in this demo is simulated. For production use, implement proper MD5 using crypto libraries.
+          </p>
         </div>
       </div>
     </ToolLayout>

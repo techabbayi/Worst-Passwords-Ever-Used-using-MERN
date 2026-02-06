@@ -163,8 +163,9 @@ const TextEncryption = () => {
         <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
           <h3 className="font-semibold mb-2">⚠️ Important Notes:</h3>
           <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-            <li>• This is a demonstration tool using basic encryption</li>
-            <li>• For sensitive data, use professional encryption tools</li>
+            <li>• <strong>DEMONSTRATION ONLY:</strong> This tool uses basic XOR encryption for educational purposes</li>
+            <li>• <strong>NOT SECURE:</strong> Do not use for sensitive data or production environments</li>
+            <li>• For real encryption, use professional tools with AES-256 or similar algorithms</li>
             <li>• Keep your password safe - lost passwords cannot be recovered</li>
             <li>• Your data is processed locally and never sent to any server</li>
           </ul>

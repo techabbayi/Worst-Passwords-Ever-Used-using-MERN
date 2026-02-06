@@ -28,8 +28,18 @@ const URLScanner = () => {
     // Simulate scanning (in production, integrate with VirusTotal, Google Safe Browsing, etc.)
     await new Promise(resolve => setTimeout(resolve, 2500));
 
-    // Mock result
-    const isSafe = !url.toLowerCase().includes('phish') && !url.toLowerCase().includes('malware');
+    // Enhanced mock safety check with more realistic patterns
+    const urlLower = url.toLowerCase();
+    const suspiciousPatterns = [
+      'phish', 'malware', 'hack', 'steal', 'fake',
+      /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/, // IP addresses
+      /[^.]+\.(tk|ml|ga|cf|gq)$/, // Suspicious TLDs
+    ];
+    
+    const isSafe = !suspiciousPatterns.some(pattern => 
+      typeof pattern === 'string' ? urlLower.includes(pattern) : pattern.test(urlLower)
+    );
+    
     const riskScore = isSafe ? Math.random() * 30 : 60 + Math.random() * 40;
     
     const checks = [
