@@ -56,7 +56,7 @@ const BreachChecker = () => {
       } else {
         throw new Error('Unable to check breach status');
       }
-    } catch (error) {
+    } catch {
       setResult({
         type: 'warning',
         title: 'Service Unavailable',

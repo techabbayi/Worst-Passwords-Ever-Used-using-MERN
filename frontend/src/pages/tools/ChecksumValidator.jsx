@@ -80,7 +80,7 @@ const ChecksumValidator = () => {
           )
         });
       }
-    } catch (error) {
+    } catch {
       setResult({
         type: 'danger',
         title: 'Error',

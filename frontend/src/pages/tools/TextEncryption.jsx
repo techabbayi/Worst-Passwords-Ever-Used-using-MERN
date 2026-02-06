@@ -27,7 +27,7 @@ const TextEncryption = () => {
         result += String.fromCharCode(decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
       }
       return result;
-    } catch (e) {
+    } catch {
       return null;
     }
   };

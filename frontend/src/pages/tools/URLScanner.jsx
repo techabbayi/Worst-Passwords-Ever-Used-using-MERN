@@ -17,7 +17,7 @@ const URLScanner = () => {
     // Basic URL validation
     try {
       new URL(url.startsWith('http') ? url : `https://${url}`);
-    } catch (e) {
+    } catch {
       setResult({ type: 'warning', message: 'Please enter a valid URL format.' });
       return;
     }

@@ -76,7 +76,7 @@ const URLExpander = () => {
           </div>
         )
       });
-    } catch (error) {
+    } catch {
       setResult({
         type: 'danger',
         title: 'Error',
